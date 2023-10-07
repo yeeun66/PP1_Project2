@@ -4,21 +4,21 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="my.css"> <!-- my.css 파일 연결 -->
 </head>
 <body>
 
-<header>
-    <strong>View Selected Book</strong>
-    
+<header class="d-flex justify-content-center align-items-center">
+        <strong class="ml-2 text-primary">View Selected Book</strong>
 </header>
 
 <main role="main">
     <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row">
+        <div class="container text-center">
+            <div class="row justify-content-center"> <!-- justify-content-center 클래스 추가 -->
                 <div class="col-md-3 col-sm-6">
                     <div class="card mb-4 shadow-sm">
-                        <img src="" alt="책 이미지" width="150" height="225" id="bookImage">
+                        <img src="" alt="책 이미지" width="150" height="225" id="bookImage" class="mx-auto">
                         <div class="card-body">
                             <p class="card-text" id="bookInfo"></p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -35,6 +35,7 @@
         </div>
     </div>
 </main>
+
 
 <script>
     // 책 정보를 ID로 저장한 객체
