@@ -12,7 +12,7 @@
         <form class="form-inline mt-2 mt-md-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="add.html">ADD</a></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="add.html">Add</a></button>
         </form>
     </header>    
     
@@ -28,7 +28,7 @@
                             <p class="card-text">해리 포터와 아즈카반의 죄수 : 미나리마 에디션<br>J.K. 롤링/문학수첩<br>34,200원</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete(event)">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
                                 <small class="text-muted">2023.10.3</small>
@@ -44,7 +44,7 @@
                             <p class="card-text">오래 보고 싶었다<br><br>나태주/더블북<br>15,300원</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete(event)">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
                                 <small class="text-muted">2023.10.5</small>
@@ -60,7 +60,7 @@
                             <p class="card-text">겨울밤 토끼 걱정<br><br>유희경/현대문학<br>16,000원</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete(event)">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
                                 <small class="text-muted">2021.10.2</small>
@@ -76,7 +76,7 @@
                             <p class="card-text">좋은 엄마 학교<br><br>제서민 챈/허블<br>18,000</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete(event)">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
                                 <small class="text-muted">2022.9.13</small>
@@ -92,7 +92,7 @@
                             <p class="card-text">달의 아이<br><br>최윤석/포레스트북스<br>21,000</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete(event)">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
                                 <small class="text-muted">2019.1.8</small>
@@ -108,7 +108,7 @@
                             <p class="card-text">네가 있는 요일<br><br>박소영/창비<br>17,900</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete(event)">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
                                 <small class="text-muted">2020.11.6</small>
@@ -124,7 +124,7 @@
                             <p class="card-text">브람스를 좋아하세요…<br><br>프랑수아즈 사강/민음사<br>13,400</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete(event)">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
                                 <small class="text-muted">2018.12.8</small>
@@ -140,7 +140,7 @@
                             <p class="card-text">완득이<br><br>김려령/창비<br>12,800</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete(event)">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
                                 <small class="text-muted">2021.7.23</small>
@@ -172,6 +172,16 @@
         // 카드 ID를 사용하여 클릭된 카드와 관련된 데이터를 "view.html" 페이지로 가져올 수 있습니다.
         // 여기서는 클릭된 카드의 ID를 쿼리 매개변수로 사용하여 "view.html" 페이지로 리디렉션합니다.
         window.location.href = `view.html?cardId=${cardId}`;
+    }
+</script>
+<script>
+    function confirmDelete(event) {
+        event.stopPropagation(); // 이벤트 전파 중지
+        if (confirm("게시물을 삭제하시겠습니까?")) {
+            // 여기에 삭제 동작을 추가
+            // 서버로 삭제 요청을 보내거나 삭제 작업 수행
+            alert("게시물이 삭제되었습니다."); // 삭제가 완료되면 메시지 표시
+        }
     }
 </script>
 
