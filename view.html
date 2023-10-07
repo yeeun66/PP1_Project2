@@ -26,7 +26,7 @@
                                     <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
                                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
                                 </div>
-                                <small class="text-muted">9 mins</small>
+                                <small class="text-muted" id="pyear"></small>
                             </div>
                         </div>
                     </div>
@@ -37,51 +37,75 @@
 </main>
 
 <script>
-    // URL에서 cardId 쿼리 매개변수를 추출합니다.
+    // 책 정보를 ID로 저장한 객체
+    const bookData = {
+        1: {
+            image: 'book1.png',
+            info: '해리 포터와 아즈카반의 죄수 : 미나리마 에디션\nJ.K. 롤링/문학수첩\n34,200원',
+            pyear: '2023.10.3'
+        },
+        2: {
+            image: 'book2.png',
+            info: '오래 보고 싶었다\n\n나태주/더블북\n15,300원',
+            pyear: '2023.10.5'
+        },
+        3: {
+            image: 'book3.png',
+            info: '겨울밤 토끼 걱정\n\n유희경/현대문학\n16,000원',
+            pyear: '2021.10.2'
+        },
+        4: {
+            image: 'book4.png',
+            info: '좋은 엄마 학교\n\n제서민 챈/허블\n18,000원',
+            pyear: '2022.9.13'
+        },
+        5: {
+            image: 'book5.png',
+            info: '달의 아이\n\n최윤석/포레스트북스\n21,000원',
+            pyear: '2019.1.8'
+        },
+        6: {
+            image: 'book6.png',
+            info: '네가 있는 요일\n\n박소영/창비\n17,900원',
+            pyear: '2020.11.6'
+        },
+        7: {
+            image: 'book7.png',
+            info: '브람스를 좋아하세요…\n\n프랑수아즈 사강/민음사\n13,400원',
+            pyear: '2018.12.8'
+        },
+        8: {
+            image: 'book8.png',
+            info: '완득이\n\n김려령/창비\n12,800원',
+            pyear: '2021.7.23'
+        },
+
+        // 다른 책 정보도 추가
+        // ...
+
+        // 예를 들어, ID 9에 해당하는 책 정보
+        9: {
+            image: 'your_custom_image.png',
+            info: '제목: <?= $bname ?>\n저자: <?= $aname ?>\n출판사: <?= $pname ?>\n출판년도: <?= $pyear ?>\n가격: <?= $price ?>원'
+        }
+    };
+
+    // URL에서 query string을 추출
     const urlParams = new URLSearchParams(window.location.search);
     const cardId = parseInt(urlParams.get('cardId'));
 
-    // 각 카드 ID에 따라 다른 이미지와 데이터를 표시합니다.
-    switch (cardId) {
-        case 1:
-            document.getElementById('bookImage').src = 'book1.png';
-            document.getElementById('bookInfo').innerText = '해리 포터와 아즈카반의 죄수 : 미나리마 에디션\nJ.K. 롤링/문학수첩\n34,200원';
-            break;
-        case 2:
-            document.getElementById('bookImage').src = 'book2.png';
-            document.getElementById('bookInfo').innerText = '오래 보고 싶었다\n나태주/더블북\n15,300원';
-            break;
-        case 3:
-            document.getElementById('bookImage').src = 'book3.png';
-            document.getElementById('bookInfo').innerText = '겨울밤 토끼 걱정\n유희경/현대문학\n16,000원';
-            break;
-        case 4:
-            document.getElementById('bookImage').src = 'book4.png';
-            document.getElementById('bookInfo').innerText = '좋은 엄마 학교\n제서민 챈/허블\n18,000원';
-            break;
-        case 5:
-            document.getElementById('bookImage').src = 'book5.png';
-            document.getElementById('bookInfo').innerText = '달의 아이\n최윤석/보레스트북스\n21,000원';
-            break;
-        case 6:
-            document.getElementById('bookImage').src = 'book6.png';
-            document.getElementById('bookInfo').innerText = '오래 보고 싶었다\n나태주/더블북\n15,300원';
-            break;
-        case 7:
-            document.getElementById('bookImage').src = 'book7.png';
-            document.getElementById('bookInfo').innerText = '오래 보고 싶었다\n나태주/더블북\n15,300원';
-            break;
-        case 8:
-            document.getElementById('bookImage').src = 'book8.png';
-            document.getElementById('bookInfo').innerText = '완득이\n나태주/더블북\n15,300원';
-            break;
-        // 다른 카드에 대한 경우도 추가. 새로 추가한 책 정보들은 어떻게 입력 받지?
-        default:
-            // 예외 처리: 유효하지 않은 카드 ID가 전달된 경우
-            document.getElementById('bookInfo').innerText = '데이터를 찾을 수 없습니다.';
-            break;
+    // 해당 ID에 따라 책 정보를 가져와 표시
+    if (bookData.hasOwnProperty(cardId)) {
+        const book = bookData[cardId];
+        document.getElementById('bookImage').src = book.image;
+        document.getElementById('bookInfo').innerText = book.info;
+        document.getElementById('pyear').innerText = book.pyear;
+    } else {
+        // 유효하지 않은 ID가 전달된 경우
+        document.getElementById('bookInfo').innerText = '데이터를 찾을 수 없습니다.';
     }
 </script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
