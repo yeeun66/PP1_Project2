@@ -21,7 +21,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm" id="card1" onclick="viewDetails(1)">
                         <img src="book1.png" alt="책 이미지" width="150" height="225">
                         <div class="card-body">
                             <p class="card-text">해리 포터와 아즈카반의 죄수 : 미나리마 에디션<br>J.K. 롤링/문학수첩<br>34,200원</p>
@@ -37,7 +37,7 @@
                 </div>
                 <!-- 다른 이미지 추가 -->
                 <div class="col-md-3 col-sm-6">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm" id="card2" onclick="viewDetails(2)">
                         <img src="book2.png" alt="책 이미지" width="150" height="225">
                         <div class="card-body">
                             <p class="card-text">오래 보고 싶었다<br><br>나태주/더블북<br>15,300원</p>
@@ -53,7 +53,7 @@
                 </div>
                 <!-- 다른 이미지 추가 -->
                 <div class="col-md-3 col-sm-6">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm" id="card3" onclick="viewDetails(3)">                        
                         <img src="book3.png" alt="책 이미지" width="150" height="225">
                         <div class="card-body">
                             <p class="card-text">겨울밤 토끼 걱정<br><br>유희경/현대문학<br>16,000원</p>
@@ -69,7 +69,7 @@
                 </div>
                 <!-- 다른 이미지 추가 -->
                 <div class="col-md-3 col-sm-6">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm" id="card4" onclick="viewDetails(4)">                        
                         <img src="book4.png" alt="책 이미지" width="150" height="225">
                         <div class="card-body">
                             <p class="card-text">좋은 엄마 학교<br><br>제서민 챈/허블<br>18,000</p>
@@ -85,7 +85,7 @@
                 </div>
                 <!-- 다른 이미지 추가 -->
                 <div class="col-md-3 col-sm-6">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm" id="card5" onclick="viewDetails(5)">                        
                         <img src="book5.png" alt="책 이미지" width="150" height="225">
                         <div class="card-body">
                             <p class="card-text">달의 아이<br><br>최윤석/포레스트북스<br>21,000</p>
@@ -101,7 +101,7 @@
                 </div>
                 <!-- 다른 이미지 추가 -->
                 <div class="col-md-3 col-sm-6">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm" id="card6" onclick="viewDetails(6)">                        
                         <img src="book6.png" alt="책 이미지" width="150" height="225">
                         <div class="card-body">
                             <p class="card-text">네가 있는 요일<br><br>박소영/창비<br>17,900</p>
@@ -117,7 +117,7 @@
                 </div>
                 <!-- 다른 이미지 추가 -->
                 <div class="col-md-3 col-sm-6">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm" id="card7" onclick="viewDetails(7)">                        
                         <img src="book7.png" alt="책 이미지" width="150" height="225">
                         <div class="card-body">
                             <p class="card-text">브람스를 좋아하세요…<br><br>프랑수아즈 사강/민음사<br>13,400</p>
@@ -133,7 +133,7 @@
                 </div>
                 <!-- 다른 이미지 추가 -->
                 <div class="col-md-3 col-sm-6">
-                    <div class="card mb-4 shadow-sm">
+                    <div class="card mb-4 shadow-sm" id="card8" onclick="viewDetails(8)">                        
                         <img src="book8.png" alt="책 이미지" width="150" height="225">
                         <div class="card-body">
                             <p class="card-text">완득이<br><br>김려령/창비<br>12,800</p>
@@ -164,6 +164,15 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    // 카드 클릭을 처리하고 데이터를 표시하는 JavaScript 함수
+    function viewDetails(cardId) {
+        // 카드 ID를 사용하여 클릭된 카드와 관련된 데이터를 "view.html" 페이지로 가져올 수 있습니다.
+        // 여기서는 클릭된 카드의 ID를 쿼리 매개변수로 사용하여 "view.html" 페이지로 리디렉션합니다.
+        window.location.href = `view.html?cardId=${cardId}`;
+    }
+</script>
 
 </body>
 </html>
