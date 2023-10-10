@@ -1,5 +1,6 @@
 <!-- 임의로 정한 레코드의 모든 항목을 보여주면서 수정하는 폼을 보여주는 Form 페이지 -->
 <!-- 여기서 데이터 가져오기, 편집 후 전송하기 기능 구현해야 함  -->
+<!-- 연결을 index에서 해줘야 연결됨  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="my.css"> <!-- my.css 파일 연결 -->
 
-    
     <script>
         function validateForm(){
             var bname = document.form1.bname;
@@ -55,16 +55,32 @@
 <form name="form1" action="/action_page.php" onsubmit="return validateForm()" method="post">
   <label for="fname">Book name:</label>
   <input type="text" id="bname" name="bname" value=""><br><br>
-  <label for="lname">Athor:</label>
+  <label for="lname">Author:</label>
   <input type="text" id="aname" name="aname" value=""><br><br>
   <label for="fname">Publisher name:</label>
   <input type="text" id="pname" name="pname" value=""><br><br>
   <label for="lname">Publication year:</label>
-  <input type="date" id="pyear" name="pyear"><br><br>
+  <input type="date" id="pyear" name="pyear" value=""><br><br>
   <label for="lname">Price:</label>
   <input type="text" id="price" name="price" value=""><br><br>
   <input type="submit" value="저장">
 
-</form> 
+</form>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const image = urlParams.get('image');
+    const name = urlParams.get('name');
+    const athor = urlParams.get('athor');
+    const publisher = urlParams.get('publisher');
+    const price = urlParams.get('price');
+    const pyear = urlParams.get('pyear');
+    const bnameInput = document.getElementById('bname');
+
+    if (name !== null) {
+        bnameInput.value = name;
+    } else {
+        bnameInput.value = '왜 이름이 안넘겨짐'; // 'name' 매개변수가 없는 경우 빈 값을 설정
+    }
+</script> 
 </body>
 </html>

@@ -20,11 +20,14 @@
                     <div class="card mb-4 shadow-sm">
                         <img src="" alt="책 이미지" width="150" height="225" id="bookImage" class="mx-auto">
                         <div class="card-body">
-                            <p class="card-text" id="bookInfo"></p>
+                            <p class="card-text" id="bookName"></p>
+                            <p class="card-text" id="bookAth"></p>
+                            <p class="card-text" id="bookPub"></p>
+                            <p class="card-text" id="bookPri"></p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-outline-secondary" onclick="confirmDelete()">Delete</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="edit.html">Edit</a></button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="navigateToEditPage()">Edit</button>
                                 </div>
                                 <small class="text-muted" id="pyear"></small>
                             </div>
@@ -42,49 +45,73 @@
     const bookData = {
         1: {
             image: 'book1.png',
-            info: '해리 포터와 아즈카반의 죄수 : 미나리마 에디션\nJ.K. 롤링/문학수첩\n34,200원',
+            name: '해리 포터와 아즈카반의 죄수 : 미나리마 에디션',
+            athor: 'J.K. 롤링',
+            publisher: '문학수첩',
+            price:'34,200원',
             pyear: '2023.10.3'
         },
         2: {
             image: 'book2.png',
-            info: '오래 보고 싶었다\n\n나태주/더블북\n15,300원',
+            name: '오래 보고 싶었다',
+            athor: '나태주',
+            publisher: '더블북',
+            price:'15,300원',
             pyear: '2023.10.5'
         },
         3: {
             image: 'book3.png',
-            info: '겨울밤 토끼 걱정\n\n유희경/현대문학\n16,000원',
+            name: '겨울밤 토끼 걱정',
+            athor: '유희경',
+            publisher: '현대문학',
+            price:'16,000원',
             pyear: '2021.10.2'
         },
         4: {
             image: 'book4.png',
-            info: '좋은 엄마 학교\n\n제서민 챈/허블\n18,000원',
+            name: '좋은 엄마 학교',
+            athor: '제서민 챈',
+            publisher: '허블',
+            price:'18,000원',
             pyear: '2022.9.13'
         },
         5: {
             image: 'book5.png',
-            info: '달의 아이\n\n최윤석/포레스트북스\n21,000원',
+            name: '달의 아이',
+            athor: '최윤석',
+            publisher: '포레스트북스',
+            price:'21,000원',
             pyear: '2019.1.8'
         },
         6: {
             image: 'book6.png',
-            info: '네가 있는 요일\n\n박소영/창비\n17,900원',
+            name: '네가 있는 요일',
+            athor: '박소영',
+            publisher: '창비',
+            price:'17,900원',
             pyear: '2020.11.6'
         },
         7: {
             image: 'book7.png',
-            info: '브람스를 좋아하세요…\n\n프랑수아즈 사강/민음사\n13,400원',
+            name: '브람스를 좋아하세요…',
+            athor: '프랑수아즈 사강',
+            publisher: '민음사',
+            price:'13,400원',
             pyear: '2018.12.8'
         },
         8: {
             image: 'book8.png',
-            info: '완득이\n\n김려령/창비\n12,800원',
+            name: '완득이',
+            athor: '김려령',
+            publisher: '창비',
+            price:'12,800원',
             pyear: '2021.7.23'
         },
 
         // 다른 책 정보도 추가
         // ...
 
-        // 예를 들어, ID 9에 해당하는 책 정보
+        // ID 9에 해당하는 책 정보
         9: {
             image: 'your_custom_image.png',
             info: '제목: <?= $bname ?>\n저자: <?= $aname ?>\n출판사: <?= $pname ?>\n출판년도: <?= $pyear ?>\n가격: <?= $price ?>원'
@@ -99,14 +126,26 @@
     if (bookData.hasOwnProperty(cardId)) {
         const book = bookData[cardId];
         document.getElementById('bookImage').src = book.image;
-        document.getElementById('bookInfo').innerText = book.info;
+        document.getElementById('bookName').innerText = book.name;
+        document.getElementById('bookAth').innerText = book.athor;
+        document.getElementById('bookPub').innerText = book.publisher;
+        document.getElementById('bookPri').innerText = book.price;
         document.getElementById('pyear').innerText = book.pyear;
     } else {
         // 유효하지 않은 ID가 전달된 경우
-        document.getElementById('bookInfo').innerText = '데이터를 찾을 수 없습니다.';
+        document.getElementById('bookName').innerText = '데이터를 찾을 수 없습니다.';
+    }
+
+    function navigateToEditPage() {
+        if (bookData.hasOwnProperty(cardId)) {
+            const book = bookData[cardId];
+            const editUrl = `edit.html?image=${book.image}&name=${book.name}&athor=${book.athor}&publisher=${book.publisher}&price=${book.price}&pyear=${book.pyear}`;
+            window.location.href = editUrl;
+        } else {
+            alert('데이터를 찾을 수 없습니다.');
+        }
     }
 </script>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
@@ -120,6 +159,7 @@
             alert("게시물이 삭제되었습니다."); // 삭제가 완료되면 메시지 표시
         }
     }
+
 </script>
 </body>
 </html>
