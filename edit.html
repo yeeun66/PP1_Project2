@@ -4,6 +4,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <header class="d-flex justify-content-center align-items-center">
+        <strong class="ml-2 text-primary">OhYes24</strong>
+    </header>    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,8 +47,11 @@
                 return false;
             }
 
-            alert("게시물을 수정할까요?");
-            return true;
+            if(confirm("게시물을 수정할까요?")) {
+                alert("수정되었습니다.");
+            }else return;
+
+            return;
             
         }
     </script>
@@ -52,35 +59,30 @@
 <body>
     <h2>Edit Book Data</h2>
 
-<form name="form1" action="/action_page.php" onsubmit="return validateForm()" method="post">
+<form name="form1" onsubmit="return validateForm()" method="post">
   <label for="fname">Book name:</label>
-  <input type="text" id="bname" name="bname" value=""><br><br>
+  <input type="text" id="bname" name="bname" value="해리 포터와 아즈카반의 죄수 : 미나리마 에디션"><br><br>
   <label for="lname">Author:</label>
-  <input type="text" id="aname" name="aname" value=""><br><br>
+  <input type="text" id="aname" name="aname" value="J.K. 롤링"><br><br>
   <label for="fname">Publisher name:</label>
-  <input type="text" id="pname" name="pname" value=""><br><br>
+  <input type="text" id="pname" name="pname" value="문학수첩"><br><br>
   <label for="lname">Publication year:</label>
-  <input type="date" id="pyear" name="pyear" value=""><br><br>
+  <input type="date" id="pyear" name="pyear" value="2023-10-03"><br><br>
   <label for="lname">Price:</label>
-  <input type="text" id="price" name="price" value=""><br><br>
+  <input type="text" id="price" name="price" value="34,200"><br><br>
   <input type="submit" value="저장">
+  <input type="button" value="뒤로가기" onclick="location.href='index.html'"></button>
+
 
 </form>
-<script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const image = urlParams.get('image');
-    const name = urlParams.get('name');
-    const athor = urlParams.get('athor');
-    const publisher = urlParams.get('publisher');
-    const price = urlParams.get('price');
-    const pyear = urlParams.get('pyear');
-    const bnameInput = document.getElementById('bname');
 
-    if (name !== null) {
-        bnameInput.value = name;
-    } else {
-        bnameInput.value = '왜 이름이 안넘겨짐'; // 'name' 매개변수가 없는 경우 빈 값을 설정
-    }
-</script> 
+<footer class="text-muted">
+    <div class="container">
+        <p class="float-right">
+            <input type="button" value="뒤로가기" onclick="location.href='index.html'"></button>
+        </p>
+    </div>
+</footer>
+
 </body>
 </html>
